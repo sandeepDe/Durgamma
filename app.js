@@ -79,7 +79,7 @@ app.post("/login", async (request, response) => {
 
   if (dbUser === undefined) {
     response.send("Invalid User");
-    response.status(401);
+    response.status(400);
   } else {
     const isPasswordMatched = await bcrypt.compare(password, dbUser.password);
     console.log(isPasswordMatched);
