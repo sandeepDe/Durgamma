@@ -37,6 +37,7 @@ app.get("/user/", async (request, response) => {
 
   const result = await database.all(getQuery);
   response.send(result);
+  response.status(400);
 });
 
 module.exports = app;
