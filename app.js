@@ -1,8 +1,9 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 app.use(express.json());
 
-const cors = require("cors");
+app.use(cors());
 
 const { open } = require("sqlite");
 const sqlite3 = require("sqlite3");
