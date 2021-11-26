@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+
 const app = express();
 app.use(express.json());
 
@@ -41,4 +42,53 @@ app.get("/user/", async (request, response) => {
   response.status(400);
 });
 
+app.post("/register/", async (request, response) => {
+  const { username, password } = request.body;
+  console.log(username);
+  const hashedPassword = await bcrypt.hash(request.body.password, 10);
+  const selectUserQuery = `SELECT * FROM user WHERE username LIKE '${username}'`;
+  const dbUser = await database.get(selectUserQuery);
+  if (dbUser === undefined) {
+    const createUserQuery = `
+      INSERT INTO 
+        user (username,  password) 
+      VALUES 
+        (
+          '${username}', 
+          
+          '${hashedPassword}'
+          
+        )`;
+    const dbResponse = await database.run(createUserQuery);
+    const newUserId = dbResponse.lastID;
+    response.send(`Created new user with ${newUserId}`);
+  } else {
+    response.status = 400;
+    response.send("User already exists");
+  }
+});
+
+app.post("/login", async (request, response) => {
+  const { username, password } = request.body;
+  //console.log(username);
+
+  const getQuery = `
+  SELECT * FROM user WHERE username = '${request.body.username}';`;
+
+  const dbUser = await database.get(getQuery);
+
+  if (dbUser === undefined) {
+    response.send("Invalid User");
+    response.status(401);
+  } else {
+    const isPasswordMatched = await bcrypt.compare(password, dbUser.password);
+    console.log(isPasswordMatched);
+    if (isPasswordMatched === true) {
+      response.send("Login Success!");
+    } else {
+      response.status(400);
+      response.send("Invalid Password");
+    }
+  }
+});
 module.exports = app;

@@ -11,7 +11,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:3000/login/
+POST http://localhost:3005/login/
 Content-Type: application/json
 
 {
@@ -50,4 +50,33 @@ GET http://localhost:3000/states/7/stats/
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNocmlzdG9waGVyX3BoaWxsaXBzIiwiaWF0IjoxNjIyNzkxODUzfQ.MXyOTijRMd92fqDaXsIu6qMC2K95w-hJ_gxkFGysBt4
 ###
 
-GET http://localhost:3000/user/
+GET http://localhost:3005/user/
+
+###
+
+POST http://localhost:3005/user/
+Content-Type: application/json
+
+{
+    "username":"girish",
+    "password" : "girish@1"
+}
+
+###
+POST http://localhost:3005/register/
+Content-Type: application/json 
+
+{
+    "username":"girish",
+    "password" : "girish@1"
+}
+
+
+###
+POST http://localhost:3005/login
+Content-Type: application/json
+
+{
+    "username":"girish",
+    "password" : "girish@1"
+}
