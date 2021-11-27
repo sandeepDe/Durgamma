@@ -78,5 +78,28 @@ Content-Type: application/json
 
 {
     "username":"girish",
-    "password" : "girish@1"
+    "password" : "girish@12"
 }
+
+
+###
+
+POST http://localhost:3005/upload/
+Content-Type: application/json
+
+
+[
+    {
+        "userId": 1 ,
+        "id" : 1 ,
+        "title" : "Sandeep",
+        "body": "sandeeppinasimham",
+    },
+
+    {
+        "userId": 2 ,
+        "id" : 2 ,
+        "title" : "Sandeep",
+        "body": "sandeeppinasimham"
+    },
+]

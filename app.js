@@ -95,4 +95,19 @@ app.post("/login", async (request, response) => {
     }
   }
 });
+
+app.post("/upload", (request, response) => {
+  let data = request.body;
+
+  data.map(async (each) => {
+    const query = `INSERT INTO datastore (user_id , id , title , body)
+    VALUES (
+        ${each.userId} , ${each.id} , '${each.title}' ,'${each.body}'
+        );
+        `;
+
+    const dbResponse = await database.run(query);
+  });
+});
+
 module.exports = app;
