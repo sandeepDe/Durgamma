@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(cors());
 
 const { open } = require("sqlite");
-const sqlite3 = require("sqlite3");
+var sqlite3 = require("sqlite3").verbose();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
@@ -96,18 +96,30 @@ app.post("/login", async (request, response) => {
   }
 });
 
-app.post("/upload", (request, response) => {
+app.post("/upload/", async (request, response) => {
   let data = request.body;
 
-  data.map(async (each) => {
-    const query = `INSERT INTO datastore (user_id , id , title , body)
-    VALUES (
-        ${each.userId} , ${each.id} , '${each.title}' ,'${each.body}'
-        );
-        `;
+  let placeholders = data
+    .map((s) => `(${s.userId},${s.id}, '${s.title}', '${s.body}')`)
+    .join(", ");
 
-    const dbResponse = await database.run(query);
-  });
+  let postQuery =
+    `INSERT INTO storedata(user_id , id , title , description) VALUES ` +
+    placeholders +
+    ";";
+
+  console.log(postQuery);
+
+  const dbResponse = await database.run(postQuery);
+  const userId = dbResponse.lastID;
+  response.send("Added successfully");
+
+  //   const dbResponse = await database.run(postQuery, (err) => {
+  //     if (err) {
+  //       return console.error(err.message);
+  //     }
+  //     console.log(`Rows inserted ${this.changes}`);
+  //   });
 });
 
 module.exports = app;

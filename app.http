@@ -87,19 +87,15 @@ Content-Type: application/json
 POST http://localhost:3005/upload/
 Content-Type: application/json
 
-
 [
-    {
-        "userId": 1 ,
-        "id" : 1 ,
-        "title" : "Sandeep",
-        "body": "sandeeppinasimham",
-    },
-
-    {
-        "userId": 2 ,
-        "id" : 2 ,
-        "title" : "Sandeep",
-        "body": "sandeeppinasimham"
-    },
+     {"userId": "5", 
+     "id": "17", 
+     "title": "sandeep" , 
+     "body": "durga"
+     },
+     {"userId": "7", 
+     "id": "16", 
+     "title": "sandeep" , 
+     "body": "durga"
+     }
 ]
