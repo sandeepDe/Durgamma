@@ -90,16 +90,16 @@ Content-Type: application/json
 [
      
    {
-       "userId":"5",
-       "id" : "108",
-       "title" : "Dummy data" ,
-       "description":"In Informatics, dummy data is benign information that does not contain any useful data, but serves to reserve space where real data is nominally present. Dummy data can be used as a placeholder for both testing and operational purposes"
+       "userId":"67",
+       "id" : "210",
+       "title" : "Chaitu" ,
+       "body":"Frontend part designed by chaitu"
    },
       {
-       "userId":"5",
-       "id" : "109",
-       "title" : "Dummy data" ,
-       "description":"In Informatics, dummy data is benign information that does not contain any useful data, but serves to reserve space where real data is nominally present. Dummy data can be used as a placeholder for both testing and operational purposes"
+       "userId":"89",
+       "id" : "111",
+       "title" : "crocs" ,
+       "body":" can be used as a placeholder for both testing and operational purposes"
    }
     
 
