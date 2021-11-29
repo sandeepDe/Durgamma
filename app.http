@@ -67,8 +67,8 @@ POST http://localhost:3005/register/
 Content-Type: application/json 
 
 {
-    "username":"girish",
-    "password" : "girish@1"
+    "username":"henry",
+    "password" : "henry_the_developer"
 }
 
 
@@ -89,7 +89,18 @@ Content-Type: application/json
 
 [
      
-     {"userId": 1, "id": 2, "title": "qui est esse", "body": "est rerum tempore vitae\nsequi sint nihil reprehend…aperiam non debitis possimus qui neque nisi nulla"}
+   {
+       "userId":"3",
+       "id" : "117",
+       "title" : "Dummy data" ,
+       "description":"In Informatics, dummy data is benign information that does not contain any useful data, but serves to reserve space where real data is nominally present. Dummy data can be used as a placeholder for both testing and operational purposes"
+   } ,
+    {
+       "userId":"4",
+       "id" : "119",
+       "title" : "Dummy data" ,
+       "description":"In Informatics, dummy data is benign information that does not contain any useful data, but serves to reserve space where real data is nominally present. Dummy data can be used as a placeholder for both testing and operational purposes"
+   }
 
 ]
 
