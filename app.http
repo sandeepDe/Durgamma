@@ -88,14 +88,11 @@ POST http://localhost:3005/upload/
 Content-Type: application/json
 
 [
-     {"userId": "5", 
-     "id": "17", 
-     "title": "sandeep" , 
-     "body": "durga"
-     },
-     {"userId": "7", 
-     "id": "16", 
-     "title": "sandeep" , 
-     "body": "durga"
-     }
+     
+     {"userId": 1, "id": 2, "title": "qui est esse", "body": "est rerum tempore vitae\nsequi sint nihil reprehend…aperiam non debitis possimus qui neque nisi nulla"}
+
 ]
+
+###
+
+GET http://localhost:3005/data/

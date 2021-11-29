@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(cors());
 
 const { open } = require("sqlite");
-var sqlite3 = require("sqlite3").verbose();
+var sqlite3 = require("sqlite3");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
@@ -120,6 +120,19 @@ app.post("/upload/", async (request, response) => {
   //     }
   //     console.log(`Rows inserted ${this.changes}`);
   //   });
+});
+
+app.get("/data/", async (request, response) => {
+  const getData = `
+    SELECT * FROM storedata;`;
+
+  const result = await database.all(getData);
+
+  response.send(result);
+});
+
+app.get("/sandeep/", async (request, response) => {
+  console.log("Hello");
 });
 
 module.exports = app;
